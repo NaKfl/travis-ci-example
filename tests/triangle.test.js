@@ -1,6 +1,8 @@
 import Point from 'models/point.model';
 import Triangle from 'models/triangle.model';
 
+// test ci
+
 describe('Đầu vào không là Point', () => {
   test('Đầu vào là số', () => {
     expect(() => {
