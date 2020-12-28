@@ -48,5 +48,4 @@ class Triangle {
     return ab + ac + bc;
   }
 }
-
-export default Triangle;
+module.exports = Triangle;

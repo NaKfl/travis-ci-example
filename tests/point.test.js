@@ -1,5 +1,5 @@
-import Point from '../src/models/Point.model';
-
+import Point from 'models/point.model';
+// ok
 describe('Đầu vào không là số', () => {
   test('x không phải là số, y là số', () => {
     expect(() => {

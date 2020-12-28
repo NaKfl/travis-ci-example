@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "build": "babel ./src --out-dir ./build",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "babel-jest": "^26.6.3",
@@ -21,6 +23,10 @@
     "verbose": true,
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
-    }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   }
 }
