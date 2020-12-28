@@ -18,6 +18,7 @@
     "nodemon": "^2.0.6"
   },
   "jest": {
+    "verbose": true,
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
