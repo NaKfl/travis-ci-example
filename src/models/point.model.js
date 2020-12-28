@@ -8,8 +8,7 @@ class Point {
   }
 
   static distance(a, b) {
-    const distance = Math.hypot(a.x - b.x, a.y - b.y);
-    return Math.round(distance * 1000000000) / 1000000000;
+    return Math.hypot(a.x - b.x, a.y - b.y);
   }
 }
 

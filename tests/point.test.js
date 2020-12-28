@@ -67,13 +67,24 @@ describe('Đầu vào là số', () => {
 });
 
 describe('Khoảng cách giữa hai điểm', () => {
-  test.each([[5, 6, 7, 8, 2.828427125]])(
-    `Khoảng các từ (%d, %d) đến (%d, %d)`,
-    (x1, y1, x2, y2, expDistance) => {
-      const a = new Point(x1, y1);
-      const b = new Point(x2, y2);
-      const distance = Point.distance(a, b);
-      expect(distance).toBe(expDistance);
-    }
-  );
+  test.each([
+    [5, 6, 7, 8, 2.828427],
+    [-5, 6, 7, 8, 12.165525],
+    [5, -6, 7, 8, 14.142136],
+    [5, 6, -7, 8, 12.165525],
+    [5, 6, 7, -8, 14.142136],
+    [5.5, 6, 7, 8, 2.5],
+    [5, 6.6, 7, 8, 2.441311],
+    [5, 6, 7.7, 8, 3.36006],
+    [5, 6, 7, 8.8, 3.44093],
+    [0, 6, 7, 8, 7.28011],
+    [5, 0, 7, 8, 8.246211],
+    [5, 6, 0, 8, 5.385165],
+    [5, 6, 7, 0, 6.324555],
+  ])(`Khoảng các từ (%d, %d) đến (%d, %d)`, (x1, y1, x2, y2, expDistance) => {
+    const a = new Point(x1, y1);
+    const b = new Point(x2, y2);
+    const distance = Math.round(Point.distance(a, b) * 1000000) / 1000000;
+    expect(distance).toBe(expDistance);
+  });
 });
