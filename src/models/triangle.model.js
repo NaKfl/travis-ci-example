@@ -1,12 +1,13 @@
 import Point from './point.model';
+import Helper from './helper.model';
 class Triangle {
   constructor(a, b, c) {
     if (!(a instanceof Point && b instanceof Point && c instanceof Point))
       throw Error('Đầu vào tam giác không hợp lệ');
 
-    const ab = Point.distance(this.a, this.b);
-    const ac = Point.distance(this.a, this.c);
-    const bc = Point.distance(this.b, this.c);
+    const ab = Point.distance(a, b);
+    const ac = Point.distance(a, c);
+    const bc = Point.distance(b, c);
     if (ab + ac < bc || ab + bc < ac || bc + ac < ab)
       return 'Không phải tam giác';
 
@@ -21,15 +22,20 @@ class Triangle {
     const bc = Point.distance(this.b, this.c);
 
     if (
-      Math.hypot(ab, ac) === bc ||
-      Math.hypot(ab, bc) === ac ||
-      Math.hypot(bc, ac) === ab
+      Helper.isEqual(Math.hypot(ab, ac), bc) ||
+      Helper.isEqual(Math.hypot(ab, ac), ac) ||
+      Helper.isEqual(Math.hypot(bc, ac), ab)
     )
       return 'Tam giác vuông';
 
-    if (ab === ac && ab === bc) return 'Tam giác đều';
+    if (Helper.isEqual(ab, ac) && Helper.isEqual(ab, bc)) return 'Tam giác đều';
 
-    if (ab === ac || ab === bc || bc === ac) return 'Tam giác cân';
+    if (
+      Helper.isEqual(ab, ac) ||
+      Helper.isEqual(ab, bc) ||
+      Helper.isEqual(bc, ac)
+    )
+      return 'Tam giác cân';
 
     if (
       ab * ab + ac * ac < bc * bc ||
@@ -48,4 +54,5 @@ class Triangle {
     return ab + ac + bc;
   }
 }
-module.exports = Triangle;
+
+export default Triangle;
