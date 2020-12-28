@@ -4,8 +4,8 @@ class Point {
     this.y = y;
   }
 
-  toString() {
-    console.log(`Point: (${this.x}, ${this.y})`);
+  static distance(a, b) {
+    return Math.hypot(a.x - b.x, a.y - b.y);
   }
 }
 

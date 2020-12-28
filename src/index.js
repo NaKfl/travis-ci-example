@@ -1,7 +1,7 @@
-console.log('Welcome to my application !');
-
 import Point from './models/point.model';
 
-const point = new Point(1, 2);
+const point1 = new Point(0, 0);
+const point2 = new Point(0, 1);
 
-point.toString();
+const distance = Point.distance(point1, point2);
+console.log('distance', distance);
